@@ -22,7 +22,8 @@ And it has to work, of course.
 
 ## Running the solution
 
-Clone this repository, open `src\ToyRobotSimulator.sln` in Visual Studio (or if you're cool like me, Rider), run.
+Clone this repository, open `src\ToyRobotSimulator.sln` in Visual Studio (or if you're cool like me, Rider), select the
+Release configuration, run.
 
 Alternatively you can use the CLI; from the repository folder:
 
@@ -51,3 +52,17 @@ should you wish.
 
 By default it is set to 6x6. If the toy robot was sentient it'd probably object to a 1x1 table. But the option is there
 and you can spin it around til you've had enough.
+
+## Considerations and limitations
+
+I'm using exceptions to bubble up Mediatr request problems, such as validation errors. They are handled, obviously,
+however can be annoying depending on your IDE/configuration. TLDR for uninterrupted flow in Visual Studio use the
+Release configuration.
+
+On that note, the above is done for brevity. Mediatr supports exception handlers and the operation result pattern could
+be used for exceptionless flow. I made the decision that neither was required to demonstrate competency at this time.
+
+The simulator will end if the user enters the Quit instruction or Ctrl+C. It'll also end on any key press that results
+in Console.ReadLine returning null. Console.ReadLine, the hosting extensions, and Ctrl+C present an interesting console
+application edge case. This can be resolved with effort, however I made the decision that it wasn't required to
+demonstrate competency at this time.
